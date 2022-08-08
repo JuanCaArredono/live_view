@@ -1,0 +1,11 @@
+
+
+      .meter {
+      @apply flex h-12 overflow-hidden text-base bg-cool-gray-300 rounded-lg mb-8;
+    }
+  
+    .meter > span {
+      @apply flex flex-col justify-center text-cool-gray-900 text-center whitespace-no-wrap bg-yellow-300 font-bold;
+      transition: width 2s ease;
+    }
+  
