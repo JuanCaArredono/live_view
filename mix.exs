@@ -33,6 +33,7 @@ defmodule LiveViewStudio.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:number, "~> 1.0.1"},
       {:phoenix, "~> 1.5.7"},
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},
