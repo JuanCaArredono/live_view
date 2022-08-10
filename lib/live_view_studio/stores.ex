@@ -5,7 +5,7 @@ defmodule LiveViewStudio.Stores do
     |> Enum.filter(&(&1.zip==zip))
   end
 
-  def serach_by_city(city) do
+  def search_by_city(city) do
     list_stores()
     |>Enum.filter(&(&1.city==city))
   end
