@@ -29,11 +29,7 @@ defmodule LiveViewStudioWeb.SearchLive do
         </button>
       </form>
 
-
-      <% if @loading do %>
-      <div>
-        asssssssssssssssssssssssssssss
-      </div>
+      <%= if @loading do %>
         <div class="loader">
         </div>
       <% end %>
