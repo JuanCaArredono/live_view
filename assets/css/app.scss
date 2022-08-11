@@ -11,6 +11,24 @@
   display: none;
 }
 
+#search{
+
+  form{
+    display: inline;
+  }
+
+  input{
+    height: 4rem;
+    width: 15rem;
+  }
+
+  button{
+    height: 4rem;
+    width: 10rem;
+    position: relative;
+  }
+}
+
 .phx-click-loading {
   opacity: 0.5;
   transition: opacity 1s ease-out;
