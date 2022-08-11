@@ -23,7 +23,7 @@ defmodule LiveViewStudio.Boats do
 
   def list_boats(criteria) when is_list(criteria) do
     query= from(b in Boat)
-
+    IO.inspect("aaaaaaaaaaaaaaaaaaaaa")
     Enum.reduce(criteria,query, fn
       {:type, ""},query -> query
 

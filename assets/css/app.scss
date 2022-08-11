@@ -11,6 +11,24 @@
   display: none;
 }
 
+.boats{
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 50px;
+  .card{
+    display: grid;
+    grid-template-rows: max-content 200px 1fr;
+    width: 300px;
+    height: 350px;
+    img {
+      object-fit: cover;
+      width: 90%;
+      height: 90%;
+    }
+  }
+}
+
 #search{
 
   form{
