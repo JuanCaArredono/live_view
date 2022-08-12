@@ -36,6 +36,33 @@
   }
 }
 
+#servers{
+}
+.sidebar{
+float: left;
+display: inline-block;
+text-align: center;
+font-size: 25px;
+overflow: hidden;
+background-color:aqua;
+border-radius: 0.75rem;
+margin-bottom: 5rem;
+height: 30rem;
+width: 15rem;
+}
+.main{
+  height: 100rem;
+  width: 60rem;
+  float: right;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  margin-bottom: 5rem;
+
+}
+.header{
+  margin-bottom: -10px;
+}
 #search{
 
   form{
@@ -163,13 +190,12 @@
   margin-top: -20px;
 }
 .card {
-  text-align: center;
-  font-size: 25px;
+  font-size: 15px;
   overflow: hidden;
   background-color: #e2e8f0;
   border-radius: 0.75rem;
   margin-bottom: 5rem;
-  height: 12rem;
+  height: 30rem;
 
   input[type=range] {
     -webkit-appearance: none;

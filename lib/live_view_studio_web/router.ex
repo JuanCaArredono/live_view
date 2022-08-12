@@ -23,6 +23,7 @@ defmodule LiveViewStudioWeb.Router do
     live "/sales-dashboard", SalesDashboardLive
     live "/search", SearchLive
     live "/filter", FilterLive
+    live "/servers", ServersLive
 
   end
 

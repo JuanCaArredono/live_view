@@ -11,21 +11,55 @@
 # and so on) as they will fail if something goes wrong.
 
 alias LiveViewStudio.Repo
-alias LiveViewStudio.Boats.Boat
+alias LiveViewStudio.Servers.Server
 
-
-%Boat{
-  model: "Boat super Delux",
-  price: "$$$",
-  type: "delux pro",
-  image: "/images/boats/boat5.jpg"
+%Server{
+  name: "QA-Server",
+  status: "dawn",
+  deploy_count: 12,
+  size: 24.0,
+  framework: "Elixir/Phoenix",
+  git_repo: "http://git.argo",
+  last_commit_id: "125ass5a",
+  last_commit_message: "hotfix_230",
 }
-|> Repo.insert!()
+|>Repo.insert!()
 
-%Boat{
-  model: "boat titanic",
-  price: "$",
-  type: "titanic",
-  image: "/images/boats/boat1.jpg"
+
+%Server{
+  name: "server_Argo",
+  status: "up",
+  deploy_count: 12,
+  size: 24.0,
+  framework: "Elixir/Phoenix",
+  git_repo: "http://git.argo",
+  last_commit_id: "125ass5a",
+  last_commit_message: "hotfix_230",
 }
-|> Repo.insert!()
+|>Repo.insert!()
+
+
+%Server{
+  name: "mercurio",
+  status: "up",
+  deploy_count: 20,
+  size: 30.0,
+  framework: "Golang",
+  git_repo: "http://git.mercurio",
+  last_commit_id: "125ass5a",
+  last_commit_message: "hotfix_230",
+}
+|>Repo.insert!()
+
+
+%Server{
+  name: "Bemus",
+  status: "up",
+  deploy_count: 30,
+  size: 24.0,
+  framework: "Elixir/Phoenix",
+  git_repo: "http://git.bemous",
+  last_commit_id: "125ass5a",
+  last_commit_message: "hotfix_230",
+}
+|>Repo.insert!()
