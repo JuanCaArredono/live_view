@@ -11,55 +11,45 @@
 # and so on) as they will fail if something goes wrong.
 
 alias LiveViewStudio.Repo
-alias LiveViewStudio.Servers.Server
+alias LiveViewStudio.Donations.Donation
 
-%Server{
-  name: "QA-Server",
-  status: "dawn",
-  deploy_count: 12,
-  size: 24.0,
-  framework: "Elixir/Phoenix",
-  git_repo: "http://git.argo",
-  last_commit_id: "125ass5a",
-  last_commit_message: "hotfix_230",
-}
-|>Repo.insert!()
+donation_items= [
+  {"☕","coffee"},
+  {"🥛","Milk"},
+  {"🐔","chicken"},
+  {"🥔","potato"},
+  {"🍲","food"},
+  {"🍒","cherrys"},
+  {"🥚","Eggs"},
+  {"🍭","candy"},
+  {"🥓","bacon"},
+  {"🍅","tomato"},
+  {"🥦","brocoli"},
+  {"🥕","zanaoria"},
+  {"🍩","donut"},
+  {"🍺","cerveza"},
+  {"🍏","manzana verde"},
+  {"🍐","Pera"},
+  {"🍊","naranja"},
+  {"🥑","Aguacate"},
+  {"🌶","Chile"},
+  {"🧄","Ajo"},
+  {"🥒","Pepino"},
+  {"🌽","maiz"},
+  {"🍍","Piña"},
+  {"🍓","fresa"},
+  {"🍌","Platano"}
+]
 
+for _i <- 1..100  do
 
-%Server{
-  name: "server_Argo",
-  status: "up",
-  deploy_count: 12,
-  size: 24.0,
-  framework: "Elixir/Phoenix",
-  git_repo: "http://git.argo",
-  last_commit_id: "125ass5a",
-  last_commit_message: "hotfix_230",
-}
-|>Repo.insert!()
+  {emoji,item} = Enum.random(donation_items)
 
-
-%Server{
-  name: "mercurio",
-  status: "up",
-  deploy_count: 20,
-  size: 30.0,
-  framework: "Golang",
-  git_repo: "http://git.mercurio",
-  last_commit_id: "125ass5a",
-  last_commit_message: "hotfix_230",
-}
-|>Repo.insert!()
-
-
-%Server{
-  name: "Bemus",
-  status: "up",
-  deploy_count: 30,
-  size: 24.0,
-  framework: "Elixir/Phoenix",
-  git_repo: "http://git.bemous",
-  last_commit_id: "125ass5a",
-  last_commit_message: "hotfix_230",
-}
-|>Repo.insert!()
+  %Donation{
+    emoji: emoji,
+    item: item,
+    quantity: Enum.random(1..20),
+    days_until_expires: Enum.random(1..30)
+  }
+  |> Repo.insert!()
+end
