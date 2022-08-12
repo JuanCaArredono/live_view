@@ -23,6 +23,12 @@ defmodule LiveViewStudioWeb.FilterLive do
         <select name="type">
           <%= options_for_select(type_options(),@type) %>
         </select>
+        <div class="prices">
+          <input type="hidden" name="prices[]" value="" />
+          <%= for price <- ["$","$$","$$$"] do %>
+            <%= price_checkbox(%{price: price, checked: price in @prices}) %>
+          <% end %>
+        </div>
       </div>
     </form>
     <div class="boats">
@@ -50,13 +56,22 @@ defmodule LiveViewStudioWeb.FilterLive do
 
   end
 
-  def handle_event("filter",%{"type"=> type}, socket) do
-    boats = Boats.list_boats(type: type)
-    socket = assign(socket, boats: boats, type: type)
+  def handle_event("filter",%{"type"=> type, "prices" => prices}, socket) do
+    params= [type: type, prices: prices]
+    IO.inspect(params)
+    boats = Boats.list_boats(params)
+    socket = assign(socket, params ++[boats: boats])
     {:noreply, socket}
   end
 
-
+  defp price_checkbox(assigns)do
+    ~L"""
+    <input type="checkbox" id="<%= @price %>"
+            name="prices[]" value="<%= @price %>"
+            <%= if @checked, do: "checked" %>/>
+    <label for="<%= @price %>"><%= @price %></label>
+    """
+  end
   defp type_options do
     [
       "All Types": "",

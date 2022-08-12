@@ -29,9 +29,9 @@ defmodule LiveViewStudio.Boats do
 
       {:type, type},quey -> from q in query, where: q.type==^type
 
-      {:price,[""]}, query-> query
+      {:prices,[""]}, query-> query
 
-      {:price, price}, query -> from q in query, where: q.price in ^price
+      {:prices, price}, query -> from q in query, where: q.price in ^price
     end)
     |>Repo.all()
   end
