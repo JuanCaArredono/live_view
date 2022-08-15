@@ -12,13 +12,14 @@
           <thead>
             <tr>
               <th class="item">
-                Item
+                <%= sort_link(@socket, "Item", :item, @options)  %>
               </th>
-              <th class="item">
-                Quantity
+              <th>
+                <%= sort_link(@socket, "Quantity", :quantity, @options)  %>
+
               </th>
-              <th class="item">
-               Days Until Expires
+              <th >
+                <%= sort_link(@socket, "Days Until Expires", :days_until_expires, @options)  %>
               </th>
             </tr>
           </thead>
@@ -32,7 +33,7 @@
 
                 </td>
                 <td>
-                  <% donation.quantity %> lbs
+                  <%= donation.quantity %> lbs
                 </td>
                 <td>
                   <span class="<%= expires_class(donation) %>">
@@ -49,7 +50,7 @@
              <%= pagination_link(@socket,
                                 "Previous",
                                 @options.page - 1,
-                                @options.per_page,
+                                @options,
                                 "previous") %>
             <%end %>
 
@@ -57,13 +58,13 @@
             <%= pagination_link(@socket,
                                 i,
                                 i,
-                                @options.per_page,
+                                @options,
                                 (if i == @options.page, do: "active") ) %>
             <%end %>
             <%= pagination_link(@socket,
                                 "Next",
                                 @options.page + 1,
-                                @options.per_page,
+                                @options,
                                 "next") %>
           </div>
         </div>
