@@ -45,7 +45,7 @@ defmodule LiveViewStudioWeb.SearchLive do
       </form>
 
       <datalist id="matches">
-        <% for match <- @matches do %>
+        <%= for match <- @matches do %>
           <option value="<%= match %>"> <%= match %> </option>
         <% end %>
       </datalist>
