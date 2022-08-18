@@ -25,6 +25,7 @@ defmodule LiveViewStudioWeb.Router do
     live "/filter", FilterLive
     live "/servers", ServersLive
     live "/paginate", PaginateLive
+    live "/volunteers", VolunteersLive
 
   end
 
