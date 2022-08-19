@@ -31,13 +31,11 @@
                     <%= volunteer.phone %>
                 </div>
                 <div class="status">
-                    <%= if volunteer.checked_out do %>
-                         Volunteered
-                    <% else %>
-                        <button>
-                            checked Out
-                        </button>
-                     <% end %>
+                    <button phx-click="toggle-status"
+                            phx-value-id="<%= volunteer.id %>"
+                            phx-disable-with="Saving...">
+                        <%= if volunteer.checked_out, do: "Check--In", else: "Check Out" %>
+                    </button>
                 </div>
             </div>
         <% end %>

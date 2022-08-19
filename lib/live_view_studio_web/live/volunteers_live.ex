@@ -54,4 +54,25 @@ defmodule LiveViewStudioWeb.VolunteersLive do
 
       {:noreply, socket}
   end
+
+
+  def handle_event("toggle-status", %{"id"=>id}, socket) do
+    volunteer=Volunteer.get_volunteers!(id)
+
+    {:ok,_volunteer}=
+      Volunteer.update_volunteers(
+        volunteer,
+        %{checked_out: !volunteer.checked_out }
+      )
+
+    volunteers=Volunteer.list_volunteers()
+
+    socket=
+      assign(socket,
+      volunteers: volunteers
+      )
+      :timer.sleep(300)
+
+      {:noreply,socket}
+  end
 end
