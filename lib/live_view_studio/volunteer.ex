@@ -5,8 +5,13 @@ defmodule LiveViewStudio.Volunteer do
 
   import Ecto.Query, warn: false
   alias LiveViewStudio.Repo
-
+  alias Phoenix.PubSub
   alias LiveViewStudio.Volunteer.Volunteers
+
+
+  def subscribe do
+    Phoenix.PubSub.subscribe(LiveViewStudio.PubSub, "volunteers")
+  end
 
   @doc """
   Returns the list of volunteers.
@@ -50,28 +55,33 @@ defmodule LiveViewStudio.Volunteer do
 
   """
   def create_volunteers(attrs \\ %{}) do
-    %Volunteers{}
-    |> Volunteers.changeset(attrs)
-    |> Repo.insert()
+      %Volunteers{}
+      |> Volunteers.changeset(attrs)
+      |> Repo.insert()
+      |> broadcast(:volunteer_created)
+
   end
 
-  @doc """
-  Updates a volunteers.
-
-  ## Examples
-
-      iex> update_volunteers(volunteers, %{field: new_value})
-      {:ok, %Volunteers{}}
-
-      iex> update_volunteers(volunteers, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
   def update_volunteers(%Volunteers{} = volunteers, attrs) do
     volunteers
     |> Volunteers.changeset(attrs)
     |> Repo.update()
+    |> broadcast(:volunteer_update)
+
   end
+
+  def broadcast({:ok,volunteer},event) do
+
+    Phoenix.PubSub.broadcast(
+      LiveViewStudio.PubSub,
+      "volunteers",
+      {event,volunteer}
+    )
+    {:ok, volunteer}
+  end
+
+  def broadcast({:error,_reason}=error,_event), do: error
+
 
   @doc """
   Deletes a volunteers.

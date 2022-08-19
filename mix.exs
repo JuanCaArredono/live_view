@@ -36,6 +36,7 @@ defmodule LiveViewStudio.MixProject do
       {:number, "~> 1.0.1"},
       {:phoenix, "~> 1.5.7"},
       {:phoenix_ecto, "~> 4.1"},
+      {:phoenix_pubsub, "~> 2.1"},
       {:ecto_sql, "~> 3.4"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_live_view, "~> 0.15.0"},
